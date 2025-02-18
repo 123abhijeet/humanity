@@ -1,305 +1,359 @@
 @extends('frontend.layouts.master')
-@section('title','Home | Sattree Gurukul')
+@section('title','Home | Humanity')
 @section('body')
-<!-- Carousel Start -->
-<div class="container-fluid p-0 mb-5">
-    <div class="owl-carousel header-carousel position-relative">
-        <div class="owl-carousel-item position-relative">
-            <img class="img-fluid" src="{{asset('frontend/img/carousel-1.jpg')}}" alt="">
-            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
-                <div class="container">
-                    <div class="row justify-content-start">
-                        <div class="col-sm-10 col-lg-8">
-                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Best Online Courses</h5>
-                            <h1 class="display-3 text-white animated slideInDown">The Best Online Learning Platform</h1>
-                            <p class="fs-5 text-white mb-4 pb-2">We offer high-quality online education at an affordable and genuine cost, ensuring accessible learning for everyone.</p>
-                            <a href="#About" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
-                            <a href="{{route('Coming-Soon')}}" target="_blank" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Try Now</a>
+<main id="main">
+
+    <!-- About Section Start-->
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-6">
+                    <div class="about-col-left">
+                        <img class="img-fluid" src="{{ asset('frontend/img/about-us.jpg')}}" />
+                    </div>
+                </div>
+
+                <div class="col-lg-7 col-md-6">
+                    <div class="about-col-right">
+                        <header class="section-header">
+                            <h3>About Humanity</h3>
+                        </header>
+                        <ul class="icon">
+                            <li><a href="#" class="fa fa-twitter"></a></li>
+                            <li><a href="#" class="fa fa-facebook"></a></li>
+                            <li><a href="#" class="fa fa-youtube"></a></li>
+                            <li><a href="#" class="fa fa-instagram"></a></li>
+                        </ul>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam convallis quam sed tincidunt accumsan. Aliquam at tincidunt tortor, ac porta turpis. Curabitur lacinia venenatis semper.
+                        </p>
+                        <p>
+                            Aliquam ut nibh ut lacus posuere facilisis. Vestibulum ullamcorper arcu et bibendum ultrices. Suspendisse rutrum turpis vitae.
+                        </p>
+                        <a href="about.html">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Section End-->
+
+    <!-- Services Section Start -->
+    <section id="services">
+        <div class="container">
+            <header class="section-header">
+                <h3>Services</h3>
+            </header>
+            <div class="row">
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="single-service">
+                        <div class="icon icon-1"></div>
+                        <h4>Consultation</h4>
+                        <span>20 Min | $50.00</span>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                        <a href="booking.html">Book Now</a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="single-service">
+                        <div class="icon icon-2"></div>
+                        <h4>Health Checkup</h4>
+                        <span>30 Min | $30.00</span>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                        <a href="booking.html">Book Now</a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="single-service">
+                        <div class="icon icon-3"></div>
+                        <h4>Flu Shots</h4>
+                        <span>10 Min | $15.00</span>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                        <a href="booking.html">Book Now</a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="single-service">
+                        <div class="icon icon-4"></div>
+                        <h4>Blood Test</h4>
+                        <span>30 Min | $10.00</span>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                        <a href="booking.html">Book Now</a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="single-service">
+                        <div class="icon icon-5"></div>
+                        <h4>Physical Exams</h4>
+                        <span>30 Min | $50.00</span>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                        <a href="booking.html">Book Now</a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="single-service">
+                        <div class="icon icon-6"></div>
+                        <h4>Prevention</h4>
+                        <span>10 Min | $20.00</span>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                        <a href="booking.html">Book Now</a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="single-service">
+                        <div class="icon icon-7"></div>
+                        <h4>Family Planning</h4>
+                        <span>30 Min | $20.00</span>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                        <a href="booking.html">Book Now</a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="single-service">
+                        <div class="icon icon-8"></div>
+                        <h4>Home Visits</h4>
+                        <span>30 Min | $30.00</span>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                        <a href="booking.html">Book Now</a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 d-sm-none d-md-block d-lg-none">
+                    <div class="single-service">
+                        <div class="icon icon-9"></div>
+                        <h4>Insurance</h4>
+                        <span>10 Min | $100.00</span>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                        <a href="booking.html">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Service Section End-->
+
+    <!-- Team Section Start -->
+    <section id="team">
+        <div class="container">
+            <div class="section-header">
+                <h3>Meet My Assistant</h3>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="box8">
+                        <img src="{{ asset('frontend/img/team-1.jpg')}}" alt="">
+                        <div class="box-content">
+                            <ul class="icon">
+                                <li><a href="#" class="fa fa-twitter"></a></li>
+                                <li><a href="#" class="fa fa-facebook"></a></li>
+                                <li><a href="#" class="fa fa-pinterest"></a></li>
+                                <li><a href="#" class="fa fa-google-plus"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h4>Maureen L. Reidy</h4>
+                    <span>Assistant Nurse</span>
+                    <p>
+                        Lorem ipsum dolor sit amet adipiscing elit. Proin consequat cursus sit amet elit proin consequat.
+                    </p>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="box8">
+                        <img src="{{ asset('frontend/img/team-2.jpg')}}" alt="">
+                        <div class="box-content">
+                            <ul class="icon">
+                                <li><a href="#" class="fa fa-twitter"></a></li>
+                                <li><a href="#" class="fa fa-facebook"></a></li>
+                                <li><a href="#" class="fa fa-pinterest"></a></li>
+                                <li><a href="#" class="fa fa-google-plus"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h4>Janelle J. Hittle</h4>
+                    <span>Assistant Nurse</span>
+                    <p>
+                        Lorem ipsum dolor sit amet adipiscing elit. Proin consequat cursus sit amet elit proin consequat.
+                    </p>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="box8">
+                        <img src="{{ asset('frontend/img/team-3.jpg')}}" alt="">
+                        <div class="box-content">
+                            <ul class="icon">
+                                <li><a href="#" class="fa fa-twitter"></a></li>
+                                <li><a href="#" class="fa fa-facebook"></a></li>
+                                <li><a href="#" class="fa fa-pinterest"></a></li>
+                                <li><a href="#" class="fa fa-google-plus"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h4>Michael C. Powell</h4>
+                    <span>Assistant Nurse</span>
+                    <p>
+                        Lorem ipsum dolor sit amet adipiscing elit. Proin consequat cursus sit amet elit proin consequat.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Team Section End -->
+
+    <!-- Testimonials Section Start -->
+    <section id="testimonials" class="section-bg wow fadeInUp">
+        <div class="container">
+            <div class="section-header">
+                <h3>Happy Client</h3>
+            </div>
+
+            <div class="owl-carousel testimonials-carousel">
+                <div class="row testimonial-item">
+                    <div class="col-sm-4">
+                        <div class="box8">
+                            <img src="{{ asset('frontend/img/testimonial-1.jpg')}}" class="testimonial-img" alt="">
+                            <div class="box-content">
+                                <ul class="icon">
+                                    <li><a href="#" class="fa fa-twitter"></a></li>
+                                    <li><a href="#" class="fa fa-facebook"></a></li>
+                                    <li><a href="#" class="fa fa-pinterest"></a></li>
+                                    <li><a href="#" class="fa fa-google-plus"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="content">
+                            <h3>Jamie D. Boyd</h3>
+                            <h4>Oral Radiologist</h4>
+                            <p>
+                                <i class="fa fa-quote-left"></i>
+                                Commodo sed hendrerit id, posuere tempus odio. Phasellus vel leo aliquam, interdum massa quis, aliquam sapien. Aliquam erat volutpat. Etiam nec feugiat libero. Phasellus in ipsum nunc.
+                                <i class="fa fa-quote-right"></i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row testimonial-item">
+                    <div class="col-sm-4">
+                        <div class="box8">
+                            <img src="{{ asset('frontend/img/testimonial-2.jpg')}}" class="testimonial-img" alt="">
+                            <div class="box-content">
+                                <ul class="icon">
+                                    <li><a href="#" class="fa fa-twitter"></a></li>
+                                    <li><a href="#" class="fa fa-facebook"></a></li>
+                                    <li><a href="#" class="fa fa-pinterest"></a></li>
+                                    <li><a href="#" class="fa fa-google-plus"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="content">
+                            <h3>Albert J. Cerrato</h3>
+                            <h4>Craft Artist</h4>
+                            <p>
+                                <i class="fa fa-quote-left"></i>
+                                Proin ut dui dictum ligula condimentum cursus. Ut orci arcu, commodo sed hendrerit id, posuere tempus odio. Phasellus vel leo aliquam, interdum massa quis, aliquam sapien. Aliquam erat volutpat
+                                <i class="fa fa-quote-right"></i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row testimonial-item">
+                    <div class="col-sm-4">
+                        <div class="box8">
+                            <img src="{{ asset('frontend/img/testimonial-3.jpg')}}" class="testimonial-img" alt="">
+                            <div class="box-content">
+                                <ul class="icon">
+                                    <li><a href="#" class="fa fa-twitter"></a></li>
+                                    <li><a href="#" class="fa fa-facebook"></a></li>
+                                    <li><a href="#" class="fa fa-pinterest"></a></li>
+                                    <li><a href="#" class="fa fa-google-plus"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="content">
+                            <h3>Theresa R. Wood</h3>
+                            <h4>Prepress Technician</h4>
+                            <p>
+                                <i class="fa fa-quote-left"></i>
+                                Dictum ligula condimentum cursus commodo sed hendrerit id, posuere tempus odio. Phasellus vel leo aliquam, interdum massa quis, aliquam sapien. Aliquam erat volutpat. Etiam nec ultricies semper risus.
+                                <i class="fa fa-quote-right"></i>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="owl-carousel-item position-relative">
-            <img class="img-fluid" src="{{asset('frontend/img/carousel-2.jpg')}}" alt="">
-            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
-                <div class="container">
-                    <div class="row justify-content-start">
-                        <div class="col-sm-10 col-lg-8">
-                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Best Online Courses</h5>
-                            <h1 class="display-3 text-white animated slideInDown">Get Educated Online From Your Home</h1>
-                            <p class="fs-5 text-white mb-4 pb-2">Our courses are designed to provide valuable knowledge and skills without compromising on affordability or excellence.</p>
-                            <a href="#About" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
-                            <a href="{{route('Coming-Soon')}}" target="_blank" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Try Now</a>
+    </section>
+    <!-- Testimonials Section End -->
+
+    <!-- Contact Section Start -->
+    <section id="contact" class="section-bg wow fadeInUp">
+        <div class="container">
+            <div class="section-header">
+                <h3>Contact Us</h3>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="contact-detail">
+                        <div class="contact-hours">
+                            <h4>Opening Hours</h4>
+                            <p>Monday-Friday: 9am to 7pm</p>
+                            <p>Saturday: 9am to 4pm</p>
+                            <p>Sunday: Closed</p>
+                        </div>
+
+                        <div class="contact-info">
+                            <h4>Contact Info</h4>
+                            <p>4137 State Street, CA, USA</p>
+                            <p><a href="tel:+1-234-567-8900">+1-234-567-8900</a></p>
+                            <p><a href="mailto:info@example.com">info@example.com</a></p>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Carousel End -->
-<!-- 
-<video width="640" height="360" controls>
-  <source src="https://sattreevision.in/Course Intro Video/1713193625_video.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video> -->
 
-
-<!-- Service Start -->
-<div class="container-xxl py-5">
-    <div class="container">
-        <div class="row g-4">
-            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="service-item text-center pt-3">
-                    <div class="p-4">
-                        <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
-                        <h5 class="mb-3">Skilled Instructors</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="service-item text-center pt-3">
-                    <div class="p-4">
-                        <i class="fa fa-3x fa-globe text-primary mb-4"></i>
-                        <h5 class="mb-3">Online Classes</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                <div class="service-item text-center pt-3">
-                    <div class="p-4">
-                        <i class="fa fa-3x fa-question text-primary mb-4"></i>
-                        <h5 class="mb-3">Quiz</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                <div class="service-item text-center pt-3">
-                    <div class="p-4">
-                        <i class="fa fa-3x fa-book-open text-primary mb-4"></i>
-                        <h5 class="mb-3">Book Library</h5>
+                <div class="col-md-6">
+                    <div class="contact-form">
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" placeholder="Your Name" required="required" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="email" class="form-control" placeholder="Your Email" required="required" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Subject" required="required" />
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" rows="5" placeholder="Message" required="required"></textarea>
+                            </div>
+                            <div><button type="submit">Send Message</button></div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<!-- Service End -->
+    </section>
+    <!-- Contact end -->
 
-
-<!-- About Start -->
-<div class="container-xxl py-5" id="About">
-    <div class="container">
-        <div class="row g-5">
-            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
-                <div class="position-relative h-100">
-                    <img class="img-fluid position-absolute w-100 h-100" src="{{asset('frontend/img/about.jpg')}}" alt="" style="object-fit: cover;">
-                </div>
-            </div>
-            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
-                <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
-                <h1 class="mb-4">Welcome to Sattree Gurukul</h1>
-                <p class="mb-4">Sattree is the new Startup ed-tech company and the creator of India's most loved school learning app. Launched in 2024, Sattree offers highly effective learning programs for every One.</p>
-                <p class="mb-4"> We are providing Best way to learn Computer and English . We craft learning journeys for every student that address their unique needs. We believe in the power of one-to-one learning that addresses every child's learning needs, allows students to be holistically involved in their education and be active, lifelong learners.</p>
-                <div class="row gy-2 gx-4 mb-4">
-                    <div class="col-sm-6">
-                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Skilled Instructors</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Online Classes</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>International Certificate</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Skilled Instructors</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Online Classes</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>International Certificate</p>
-                    </div>
-                </div>
-
-            </div>
+    <!-- Support Section Start -->
+    <section id="support">
+        <div class="container">
+            <h1>
+                Need help? Call us <br> 943-145-5520, 799-225-2323, 700-467-7500, <br> 938-614-5543, 970-967-3100
+            </h1>
         </div>
-    </div>
-</div>
-<!-- About End -->
+    </section>
+    <!-- Support Section end -->
 
-<!-- Books Start -->
-<div class="container-xxl py-5 category">
-    <div class="container">
-        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-            <h6 class="section-title bg-white text-center text-primary px-3">Books</h6>
-            <h1 class="mb-5">Our Books</h1>
-        </div>
-        <div class="row g-3">
-            @if($books->isEmpty())
-            <div class="col-lg-12">
-                <div class="alert alert-warning text-center">
-                    No Books Found
-                </div>
-            </div>
-            @else
-            @foreach($books as $item)
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="course-item bg-light">
-                    <div class="position-relative overflow-hidden">
-                        <img class="img-fluid" src="{{asset('Book Cover/'.$item->cover_image)}}" alt="" style="border-radius: 10%;">
-                    </div>
-                    <div class="text-center p-4 pb-0">
-                        <h5 class="mb-4">{{$item->title}}</h5>
-                    </div>
-                    <h6 class="mx-2">{{$item->publication}} <span class="mx-2" style="float: right;">₹ {{$item->price}}</span></h6>
-                    <span class="mx-2">{{$item->subject}} <span class="mx-2" style="float: right;">{{$item->language}} </span> </span> <br>
-                    @php
-                    $description = implode(' ', array_slice(explode(' ', $item->description), 0, 5));
-                    @endphp
-                    <span class="mx-2">{{$description}}...</span> <br> <br>
-                    <a style="margin-left:35%;" class="btn btn-primary" href="{{route('Coming-Soon')}}">Buy Now</a> <br>
-                    <br>
-                </div>
-            </div>
-            @endforeach
-            @endif
-        </div>
-
-    </div>
-</div>
-<!-- Books Start -->
-
-
-<!-- Courses Start -->
-<div class="container-xxl py-5">
-    <div class="container">
-        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-            <h6 class="section-title bg-white text-center text-primary px-3">Courses</h6>
-            <h1 class="mb-5">Popular Courses</h1>
-        </div>
-        <div class="row g-4 justify-content-center">
-            @if($courses->isEmpty())
-            <div class="col-lg-12">
-                <div class="alert alert-warning text-center">
-                    No Courses Found
-                </div>
-            </div>
-            @else
-            @foreach($courses as $item)
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="course-item bg-light">
-                    <div class="position-relative overflow-hidden">
-                        <img class="img-fluid" src="{{asset('Course Banner/'.$item->course_banner)}}" alt="">
-                    </div>
-                    <div class="text-center p-4 pb-0">
-                        <h3 class="mb-0">₹ {{$item->course_fee}}</h3>
-                        <div class="mb-3">
-                            <small class="fa fa-star text-primary"></small>
-                            <small class="fa fa-star text-primary"></small>
-                            <small class="fa fa-star text-primary"></small>
-                            <small class="fa fa-star text-primary"></small>
-                            <small class="fa fa-star text-primary"></small>
-                        </div>
-                        <h5 class="mb-4">{{$item->course_name}}</h5>
-                    </div>
-                    <div class="d-flex border-top">
-                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>Abhijeet Kumar</small>
-                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>{{$item->course_duration}} Hours</small>
-                    </div>
-                    @php
-                    $description = implode(' ', array_slice(explode(' ', $item->course_short_description), 0, 10));
-                    @endphp
-                    <span class="mx-2">{{$description}}...</span> <br> <br>
-                    <a style="margin-left:38%;" href="{{route('Coming-Soon')}}" class="btn btn-primary">Buy Now</a> <br> <br>
-                </div>
-            </div>
-            @endforeach
-            @endif
-        </div>
-    </div>
-</div>
-<!-- Courses End -->
-
-
-<!-- Team Start -->
-<div class="container-xxl py-5">
-    <div class="container">
-        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-            <h6 class="section-title bg-white text-center text-primary px-3">Instructors</h6>
-            <h1 class="mb-5">Expert Instructors</h1>
-        </div>
-        <div class="row g-4">
-            @foreach($teachers as $item)
-            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="team-item bg-light">
-                    <div class="overflow-hidden">
-                        <img class="img-fluid" src="{{asset('Teacher Picture/'.$item->picture)}}" alt="">
-                    </div>
-                    <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-                        <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                            <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                    <div class="text-center p-4">
-                        <h5 class="mb-0">{{$item->name}}</h5>
-                        <small>{{$item->experience}}+ Years</small> <br>
-                        <small>{{$item->qualification}}</small>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-        </div>
-    </div>
-</div>
-<!-- Team End -->
-
-
-<!-- Testimonial Start -->
-<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-    <div class="container">
-        <div class="text-center">
-            <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
-            <h1 class="mb-5">Our Students Say!</h1>
-        </div>
-        <div class="owl-carousel testimonial-carousel position-relative">
-            <div class="testimonial-item text-center">
-                <img class="border rounded-circle p-2 mx-auto mb-3" src="{{asset('frontend/img/testimonial-1.jpg')}}" style="width: 80px; height: 80px;">
-                <h5 class="mb-0">Client Name</h5>
-                <p>Profession</p>
-                <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                </div>
-            </div>
-            <div class="testimonial-item text-center">
-                <img class="border rounded-circle p-2 mx-auto mb-3" src="{{asset('frontend/img/testimonial-2.jpg')}}" style="width: 80px; height: 80px;">
-                <h5 class="mb-0">Client Name</h5>
-                <p>Profession</p>
-                <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                </div>
-            </div>
-            <div class="testimonial-item text-center">
-                <img class="border rounded-circle p-2 mx-auto mb-3" src="{{asset('frontend/img/testimonial-3.jpg')}}" style="width: 80px; height: 80px;">
-                <h5 class="mb-0">Client Name</h5>
-                <p>Profession</p>
-                <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                </div>
-            </div>
-            <div class="testimonial-item text-center">
-                <img class="border rounded-circle p-2 mx-auto mb-3" src="{{asset('frontend/img/testimonial-4.jpg')}}" style="width: 80px; height: 80px;">
-                <h5 class="mb-0">Client Name</h5>
-                <p>Profession</p>
-                <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Testimonial End -->
+</main>
 @endsection
