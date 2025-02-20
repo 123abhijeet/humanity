@@ -26,57 +26,23 @@ class FrontendController extends Controller
 {
     public function index()
     {
-        $books = Book::all();
-        $courses = Course::all();
-        $teachers = Teacher::all();
-        return view('frontend.index', compact('books', 'courses', 'teachers'));
+        return view('frontend.index');
     }
-    public function about()
+    public function events()
     {
-        $teachers = Teacher::all();
-        return view('frontend.about', compact('teachers'));
+        return view('frontend.events');
     }
-    public function coming_soon()
+    public function donate_now()
     {
-        return view('frontend.coming_soon');
+        return view('frontend.donate_blood');
     }
-    public function courses()
+    public function request_blood()
     {
-        $books = Book::all();
-        $courses = Course::all();
-        return view('frontend.courses', compact('books', 'courses'));
+        return view('frontend.request_blood');
     }
-    public function our_mentors()
+    public function become_member()
     {
-        $teachers = Teacher::all();
-        return view('frontend.our_mentors', compact('teachers'));
-    }
-    public function contact()
-    {
-        return view('frontend.contact');
-    }
-    public function store_contact(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255'],
-            'mobile' => ['required'],
-            'subject' => ['required', 'string', 'max:255'],
-            'message' => ['required', 'string', 'max:1000'],
-        ]);
-
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-
-        $data = $request->all();
-        Contact::create($data);
-        return redirect()->back()->with('success', 'Your message is submitted, we will contact you shortly');
-    }
-    public function join_as_mentor()
-    {
-        $category = Category::all();
-        return view('frontend.join_as_mentor', compact('category'));
+        return view('frontend.become_member');
     }
     public function store_mentor(Request $request)
     {

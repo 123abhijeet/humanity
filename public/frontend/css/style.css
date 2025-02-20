@@ -989,8 +989,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #booking .booking-form input,
 #booking .booking-form select {
-    font-size: 16px;
-    padding: 10px 14px;
+    font-size: 15px;
+    padding: 5px 14px;
     border: 1px solid #ddd;
     border-radius: 20px;
     box-shadow: none;

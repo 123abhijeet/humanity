@@ -43,7 +43,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [FrontendController::class, 'index'])->name('Home');
-Route::get('/gallery', [FrontendController::class, 'gallery'])->name('Gallery');
 Route::get('/events', [FrontendController::class, 'events'])->name('Events');
 Route::get('/donate-now', [FrontendController::class, 'donate_now'])->name('Donate-Now');
 Route::get('/request-blood', [FrontendController::class, 'request_blood'])->name('Request-Blood');

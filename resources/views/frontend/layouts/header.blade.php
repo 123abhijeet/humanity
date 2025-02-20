@@ -10,9 +10,8 @@
 	<meta content="" name="description">
 
 	<!-- Favicons -->
-	<link href="img/favicon.ico" rel="icon">
-	<link href="img/apple-touch-icon.png" rel="apple-touch-icon">
-	<link href="{{asset('frontend/img/sat_logo.png')}}" rel="icon">
+	<link href="{{asset('frontend/img/favicon.ico')}}" rel="icon">
+	<link href="{{asset('frontend/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Nunito:600,700,800,900" rel="stylesheet">
@@ -41,6 +40,60 @@
 			font-size: 18px;
 			outline: none;
 		}
+
+		.donate_img {
+			height: 180px;
+			width: 350px;
+			margin-left: 160px;
+		}
+
+		.join_img {
+			height: 180px;
+			width: 190px;
+			margin-left: 320px;
+		}
+
+		.mobile_show {
+			display: none;
+		}
+
+		/* Target devices with a maximum width of 768px (typical tablets and smaller screens) */
+		@media only screen and (max-width: 768px) {
+			.donate_img {
+				height: 180px;
+				width: 350px;
+				margin-left: -25px;
+			}
+
+			.join_img {
+				height: 180px;
+				width: 190px;
+				margin-left: 0;
+			}
+
+			.mobile_show {
+				display: block;
+			}
+		}
+
+		/* Additional media queries for smaller devices like smartphones */
+		@media only screen and (max-width: 480px) {
+			.donate_img {
+				height: 180px;
+				width: 350px;
+				margin-left: -25px;
+			}
+
+			.join_img {
+				height: 180px;
+				width: 190px;
+				margin-left: 0;
+			}
+
+			.mobile_show {
+				display: block;
+			}
+		}
 	</style>
 </head>
 
@@ -50,7 +103,7 @@
 		<div class="container text-center">
 			<div class="row">
 				<div class="col-md-12">
-					<h1 style="font-size: 70px;"><a href="">HUMANITY BL🩸🩸D DONORS </a></h1>
+					<h1 style="font-size: 70px;"><a href="">HUMANITY BL🩸🩸D DONORS TRUST, KHAGARIA, BIHAR </a></h1>
 					<a class="brand" href="" title="Home"><img alt="Logo" src="{{asset('frontend/img/logo.png')}}" style="width: 15%;border-radius: 50%;"></a>
 				</div>
 			</div>
@@ -70,10 +123,9 @@
 			<nav id="nav-menu-container">
 				<ul class="nav-menu">
 					<li class="{{ request()->is('/') ? 'menu-active ' : '' }}"><a href="{{route('Home')}}">Home</a></li>
-					<li class="{{ request()->is('/gallery') ? 'menu-active ' : '' }}"><a href="{{route('Gallery')}}">Gallery</a></li>
 					<li class="{{ request()->is('/events') ? 'menu-active ' : '' }}"><a href="{{route('Events')}}">Events</a></li>
 					<li class="{{ request()->is('/donate-now') ? 'menu-active ' : '' }}"><a href="{{route('Donate-Now')}}">Donate Blood</a></li>
-					<li class="{{ request()->is('/contact') ? 'menu-active ' : '' }}"><a href="{{route('Become-Member')}}">Become Member</a></li>
+					<li class="{{ request()->is('/become-member') ? 'menu-active ' : '' }}"><a href="{{route('Become-Member')}}">Become Member</a></li>
 					@if(Auth::check())
 					<li><a href="{{ route('Admin-Dashboard') }}" class="nav-item nav-link active"><i class="fa fa-home m-1"></i>Dashboard</a></li>
 					<li>
@@ -92,3 +144,11 @@
 		</div>
 	</header>
 	<!-- Header End -->
+	<div class="mobile_show">
+		<br>
+		<a style="background: #A52A2A; color: #fff; font-weight: 700; padding: 15px 30px; border-radius: 50px; letter-spacing: 1px; margin-left: 20px;" href="{{route('Donate-Now')}}">Donate Blood</a>
+		<a style="background: #A52A2A; color: #fff; font-weight: 700; padding: 15px 30px; border-radius: 50px; letter-spacing: 1px;" href="{{route('Request-Blood')}}">Request Blood</a>
+		<br>
+		<br>
+	</div>
+	<main id="main">
