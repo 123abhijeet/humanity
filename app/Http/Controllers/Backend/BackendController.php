@@ -33,6 +33,8 @@ class BackendController extends Controller
         $totalABpositive = Donation::where('donors_blood_group', 'AB+')->count();
         $totalABnegative = Donation::where('donors_blood_group', 'AB-')->count();
         $totalBombay = Donation::where('donors_blood_group', 'Bombay')->count();
+        $donors = Donation::orderBy('id', 'desc')->get();
+        $members = Member::orderBy('id', 'desc')->get();
         return view('backend.index', compact(
             'total_members',
             'total_requests',
@@ -45,7 +47,9 @@ class BackendController extends Controller
             'totalOnegative',
             'totalABpositive',
             'totalABnegative',
-            'totalBombay'
+            'totalBombay',
+            'donors',
+            'members'
         ));
     }
     public function donors()

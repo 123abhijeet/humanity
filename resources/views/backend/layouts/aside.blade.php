@@ -9,7 +9,7 @@
 			</div>
 			<ul class="sidebar-ul">
 				<li class="{{ Route::is('Admin-Dashboard') ? 'active' : '' }}">
-					<a href="{{ route('Admin-Dashboard') }}"><img src="{{ asset('backend/img/sidebar/icon-1.png') }}" alt="icon" /><span>Dashboard</span></a>
+					<a href="{{ route('Admin-Dashboard') }}"><img src="{{ asset('backend/img/sidebar/icon-1.png') }}" alt="icon" /><span style="color: white;">Dashboard</span></a>
 				</li>
 
 				@role('Admin')
