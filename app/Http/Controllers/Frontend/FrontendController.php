@@ -4,11 +4,14 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Mail\UserRegistered;
+use App\Models\Backend\Bloodrequest;
 use App\Models\Backend\Book;
 use App\Models\Backend\Category;
 use App\Models\Backend\Contact;
 use App\Models\Backend\Course;
 use App\Models\Backend\CoursePayment;
+use App\Models\Backend\Donation;
+use App\Models\Backend\Member;
 use App\Models\Backend\Student;
 use App\Models\Backend\Subcategory;
 use App\Models\Backend\Teacher;
@@ -32,7 +35,7 @@ class FrontendController extends Controller
     {
         return view('frontend.events');
     }
-    public function donate_now()
+    public function donate_blood()
     {
         return view('frontend.donate_blood');
     }
@@ -44,19 +47,22 @@ class FrontendController extends Controller
     {
         return view('frontend.become_member');
     }
-    public function store_mentor(Request $request)
+
+    public function store_blood_request(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'course_category' => ['required'],
-            'course_subcategory' => ['required'],
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('teachers', 'email')],
-            'mobile' => ['required', Rule::unique('teachers', 'mobile')],
-            'qualification' => ['required', 'string', 'max:255'],
-            'experience' => ['required', 'string', 'max:255'],
-            'address' => ['required', 'string', 'max:255'],
-            'picture' => ['required', 'max:500'], // Maximum size in kilobytes
-            'identity_proof' => ['required', 'max:200'], // Maximum size in kilobytes
+            'patent_name' => ['required'],
+            'patent_age' => ['required'],
+            'patent_address' => ['required'],
+            'patent_problem' => ['required'],
+            'patent_blood_group' => ['required'],
+            'unit_required' => ['required'],
+            'hospital_name' => ['required'],
+            'hospital_address' => ['required'],
+            'date_required' => ['required'],
+            'attendent_name' => ['required'],
+            'attendent_mobile' => ['required'],
+            'donated_unit' => ['required'],
         ]);
 
         if ($validator->fails()) {
@@ -64,75 +70,51 @@ class FrontendController extends Controller
         }
 
         $data = $request->all();
-        if ($request->picture) {
-            $picture = time() . 'picture' . '.' . $request->picture->extension();
-            $request->picture->move(public_path('Teacher Picture'), $picture);
-            $data['picture'] = $picture;
-        }
-        if ($request->identity_proof) {
-            $identity_proof = time() . 'identity_proof' . '.' . $request->identity_proof->extension();
-            $request->identity_proof->move(public_path('Identity Proof'), $identity_proof);
-            $data['identity_proof'] = $identity_proof;
-        }
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->mobile),
-            'status' => 0
-        ]);
-        $data['user_id'] = $user->id;
-        Teacher::create($data);
-        try {
-            Mail::to($user->email)->send(new UserRegistered($user->name, $user->email, $request->mobile));
-        } catch (Exception $exception) {
-            \Log::error('Mail sending error: ' . $exception->getMessage());
-        }
-        $user->assignRole('Teacher');
-        return redirect()->back()->with('success', 'Your application is submitted, wait for approval from Admin (Check your email for login credentials)');
+        Bloodrequest::create($data);
+        return redirect()->back()->with('success', 'Your details submitted successfully');
     }
-    public function payment_receipt()
+    public function store_blood_donation(Request $request)
     {
-        return view('payment_receipt');
-    }
-    public function generate_payment_receipt()
-    {
-        $receipt_number = 'SAT' . date('dmY') . Auth::user()->id;
-        $student_detail = Student::where('email',Auth::user()->email)->first();
-        $payment_detail = CoursePayment::where('course_id',1)->where('student_id',12)->first();
-        $category = Category::where('id',$student_detail->category)->first();
-        $subcategory = Subcategory::where('id',$student_detail->subcategory)->first();
-        $course = Course::where('id', 1)->first();
-        // Generate PDF
-
-        $pdf = Pdf::loadView('payment_receipt', [
-            'student_name' => Auth::user()->name,
-            'course_name' => $course->course_name,
-            'course_uid' => $course->course_uid,
-            'course_fee' => $course->course_fee,
-            'duration' => $course->course_duration,
-            'amount' => $payment_detail->amount,
-            'payment_type' => $course->payment_type,
-            'payment_status' => $course->payment_status,
-            'email' => $student_detail->email,
-            'mobile' => $student_detail->mobile,
-            'purchase_date' => now()->format('F d, Y'),
-            'receipt_number' => $receipt_number,
-            'category' => $category->category_name,
-            'subcategory' => $subcategory->subcategory_name,
+        $validator = Validator::make($request->all(), [
+            'donors_name' => ['required'],
+            'donors_age' => ['required'],
+            'donors_mobile' => ['required'],
+            'donors_address' => ['required'],
+            'donors_blood_group' => ['required'],
+            'donors_last_donation_date' => [],
+            'vanue_name' => ['required'],
+            'vanue_address' => ['required'],
+            'donation_date' => ['required'],
         ]);
 
-        $pdf_content = $pdf->output();
-
-        $relativePdfPath = 'Payment Receipt/' . Auth::user()->name . '_' . $course->course_name . '.pdf';
-
-        // Ensure the directory exists
-        if (!file_exists(public_path('Payment Receipt'))) {
-            mkdir(public_path('Payment Receipt'), 0755, true);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        // Save the generated PDF content to the public folder
-        file_put_contents($relativePdfPath, $pdf_content);
+        $data = $request->all();
+        Donation::create($data);
+        return redirect()->back()->with('success', 'Your details submitted successfully');
     }
+    public function store_member(Request $request) 
+    {
+        $validator = Validator::make($request->all(), [
+            'members_name' => ['required'],
+            'members_age' => ['required'],
+            'members_mobile' => ['required'],
+            'members_address' => ['required'],
+            'members_blood_group' => ['required'],
+            'members_last_donation_date' => [],
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $data = $request->all();
+        Member::create($data);
+        return redirect()->back()->with('success', 'Your details submitted successfully');
+    }
+    
     public function privacy_policy()
     {
         return view('frontend.policies.privacy_policy');
@@ -140,9 +122,5 @@ class FrontendController extends Controller
     public function terms()
     {
         return view('frontend.policies.term_conditions');
-    }
-    public function refund()
-    {
-        return view('frontend.policies.return_refund');
     }
 }

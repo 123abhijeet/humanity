@@ -31,7 +31,6 @@
         }
     },
     "files": [
-        "app/Helpers/certificate_no_helper.php",
         "app/Helpers/image_resize_helper.php"
     ],
     "autoload-dev": {

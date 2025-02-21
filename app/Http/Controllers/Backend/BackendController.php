@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Backend\Bloodrequest;
 use App\Models\Backend\Contact;
+use App\Models\Backend\Donation;
+use App\Models\Backend\Member;
 use App\Models\Backend\Student;
 use App\Models\Backend\Teacher;
 use App\Models\Teacher\Liveclass;
@@ -18,69 +21,46 @@ class BackendController extends Controller
 {
     public function index()
     {
-        return view('backend.index');
+        $total_members = Member::count();
+        $total_requests = Bloodrequest::count();
+        $total_donations = Donation::count();
+        $totalApositive = Donation::where('donors_blood_group', 'A+')->count();
+        $totalAnegative = Donation::where('donors_blood_group', 'A-')->count();
+        $totalBpositive = Donation::where('donors_blood_group', 'B+')->count();
+        $totalBnegative = Donation::where('donors_blood_group', 'B-')->count();
+        $totalOpositive = Donation::where('donors_blood_group', 'O+')->count();
+        $totalOnegative = Donation::where('donors_blood_group', 'O-')->count();
+        $totalABpositive = Donation::where('donors_blood_group', 'AB+')->count();
+        $totalABnegative = Donation::where('donors_blood_group', 'AB-')->count();
+        $totalBombay = Donation::where('donors_blood_group', 'Bombay')->count();
+        return view('backend.index', compact(
+            'total_members',
+            'total_requests',
+            'total_donations',
+            'totalApositive',
+            'totalAnegative',
+            'totalBpositive',
+            'totalBnegative',
+            'totalOpositive',
+            'totalOnegative',
+            'totalABpositive',
+            'totalABnegative',
+            'totalBombay'
+        ));
     }
-    public function quizreport()
+    public function donors()
     {
-        if (auth()->user()->hasRole('Admin')) {
-            $quizreports = Quizresult::join('quizzes', 'quizresults.quiz_id', 'quizzes.id')
-                ->whereNotNull('quizzes.price')
-                ->get();
-        } else {
-            $quizreports = Quizresult::join('quizzes', 'quizresults.quiz_id', 'quizzes.id')
-                ->whereNull('quizzes.price')
-                ->get();
-        }
-        return view('backend.reports.quizreport', compact('quizreports'));
+        $donors = Donation::orderBy('id', 'desc')->get();
+        return view('backend.donors.index', compact('donors'));
     }
-    public function testreport()
+    public function blood_requests()
     {
-        $testresults = Testresult::all();
-        return view('backend.reports.testreport', compact('testresults'));
+        $blood_requests = Bloodrequest::orderBy('id', 'desc')->get();
+        return view('backend.blood_requests.index', compact('blood_requests'));
     }
-    public function subjectivetestreport()
+    public function members()
     {
-        $testresults = Subjectivetestresult::all();
-        return view('backend.reports.subjectivetestreport', compact('testresults'));
-    }
-    public function subjectivetestquestions($test_id)
-    {
-        $subjective_test_questions = Testattemptquestion::whereNull('right_answer')->where('test_id', $test_id)->get();
-        return view('backend.reports.subjectivetestquestions', compact('subjective_test_questions'));
-    }
-    public function subjectivetestanswer(Request $request)
-    {
-        $total_marks = 0;
-        foreach ($request->question_id as $key => $questionId) {
-            $marks = $request->marks[$key];
-            $total_marks += $marks;
-        }
-        $total_score = $total_marks;
-
-        Subjectivetestresult::where('test_id', $request->test_id)->update([
-            'total_score' => $total_score
-        ]);
-
-        return redirect()->route('Subjective-Test-Reports')->with('success', 'Data Updated Successfully');
-    }
-    public function contacts()
-    {
-        $contacts = Contact::orderBy('id', 'desc')->get();
-        return view('backend.contacts', compact('contacts'));
-    }
-    public function contact_delete($id)
-    {
-        Contact::where('id', $id)->delete();
-        return redirect()->back()->with('error', 'Data removed successfully');
-    }
-    public function teachers_enrolled()
-    {
-        $todays_teachers_enrolled = Teacher::whereDate('created_at',Carbon::today())->get();
-        return view('backend.todays_enrollment.teachers_index', compact('todays_teachers_enrolled'));
-    }
-    public function students_enrolled()
-    {
-        $todays_students_enrolled = Student::whereDate('created_at',Carbon::today())->get();
-        return view('backend.todays_enrollment.students_index', compact('todays_students_enrolled'));
+        $members = Member::orderBy('id', 'desc')->get();
+        return view('backend.members.index', compact('members'));
     }
 }

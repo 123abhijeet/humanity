@@ -122,10 +122,10 @@
 		<div class="container">
 			<nav id="nav-menu-container">
 				<ul class="nav-menu">
-					<li class="{{ request()->is('/') ? 'menu-active ' : '' }}"><a href="{{route('Home')}}">Home</a></li>
-					<li class="{{ request()->is('/events') ? 'menu-active ' : '' }}"><a href="{{route('Events')}}">Events</a></li>
-					<li class="{{ request()->is('/donate-now') ? 'menu-active ' : '' }}"><a href="{{route('Donate-Now')}}">Donate Blood</a></li>
-					<li class="{{ request()->is('/become-member') ? 'menu-active ' : '' }}"><a href="{{route('Become-Member')}}">Become Member</a></li>
+					<li class="{{ Route::is('Home') ? 'menu-active' : '' }}"><a href="{{route('Home')}}">Home</a></li>
+					<li class="{{ Route::is('Events') ? 'menu-active' : '' }}"><a href="{{route('Events')}}">Events</a></li>
+					<li class="{{ Route::is('Donate-Blood') ? 'menu-active' : '' }}"><a href="{{route('Donate-Blood')}}">Donate Blood</a></li>
+					<li class="{{ Route::is('Become-Member') ? 'menu-active' : '' }}"><a href="{{route('Become-Member')}}">Become Member</a></li>
 					@if(Auth::check())
 					<li><a href="{{ route('Admin-Dashboard') }}" class="nav-item nav-link active"><i class="fa fa-home m-1"></i>Dashboard</a></li>
 					<li>
@@ -136,7 +136,7 @@
 					</li>
 					@else
 					<li>
-						<a class="nav-item nav-link active" href="{{ route('login') }}"><i class="fa fa-lock m-1"></i>Log In</a>
+						<a class="nav-item nav-link" href="{{ route('login') }}"><i class="fa fa-lock m-1"></i>Log In</a>
 					</li>
 					@endif
 				</ul>
@@ -146,7 +146,7 @@
 	<!-- Header End -->
 	<div class="mobile_show">
 		<br>
-		<a style="background: #A52A2A; color: #fff; font-weight: 700; padding: 15px 30px; border-radius: 50px; letter-spacing: 1px; margin-left: 20px;" href="{{route('Donate-Now')}}">Donate Blood</a>
+		<a style="background: #A52A2A; color: #fff; font-weight: 700; padding: 15px 30px; border-radius: 50px; letter-spacing: 1px; margin-left: 20px;" href="{{route('Donate-Blood')}}">Donate Blood</a>
 		<a style="background: #A52A2A; color: #fff; font-weight: 700; padding: 15px 30px; border-radius: 50px; letter-spacing: 1px;" href="{{route('Request-Blood')}}">Request Blood</a>
 		<br>
 		<br>

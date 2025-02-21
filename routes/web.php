@@ -1,33 +1,9 @@
 <?php
 
-use App\Http\Controllers\Backend\AdminNotificationController;
 use App\Http\Controllers\Backend\BackendController;
-use App\Http\Controllers\Backend\BookController;
 use App\Http\Controllers\Backend\CategoryController;
-use App\Http\Controllers\Backend\CourseCertificateController;
-use App\Http\Controllers\Backend\CourseCompletedController;
-use App\Http\Controllers\Backend\CourseController;
-use App\Http\Controllers\Backend\CourseRRController;
-use App\Http\Controllers\Backend\OfferController;
-use App\Http\Controllers\Backend\SoldcoursesController;
-use App\Http\Controllers\Backend\StudentController;
-use App\Http\Controllers\Backend\SubcategoryController;
-use App\Http\Controllers\Backend\TeacherController;
-use App\Http\Controllers\Backend\TeacherRRController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\Teacher\AgoraMeetingController;
-use App\Http\Controllers\Teacher\CoursevideoController;
-use App\Http\Controllers\Teacher\LiveClassController;
-use App\Http\Controllers\Teacher\PaymentController;
-use App\Http\Controllers\Teacher\QueryController;
-use App\Http\Controllers\Teacher\QuizController;
-use App\Http\Controllers\Teacher\StudymaterialController;
-use App\Http\Controllers\Teacher\StudyMaterialTypeController;
-use App\Http\Controllers\Teacher\JoinedUserController;
-use App\Http\Controllers\Teacher\ChatController;
-use App\Http\Controllers\Teacher\TeacherNotificationController;
-use App\Http\Controllers\Teacher\TestController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -44,9 +20,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontendController::class, 'index'])->name('Home');
 Route::get('/events', [FrontendController::class, 'events'])->name('Events');
-Route::get('/donate-now', [FrontendController::class, 'donate_now'])->name('Donate-Now');
+Route::get('/donate-blood', [FrontendController::class, 'donate_blood'])->name('Donate-Blood');
+Route::post('/store-blood-donation', [FrontendController::class, 'store_blood_donation'])->name('Store-Blood-Donation');
 Route::get('/request-blood', [FrontendController::class, 'request_blood'])->name('Request-Blood');
-Route::get('/our-sponsers', [FrontendController::class, 'our_sponsers'])->name('Our-Sponsers');
+Route::post('/store-blood-request', [FrontendController::class, 'store_blood_request'])->name('Store-Blood-Request');
 Route::get('/become-member', [FrontendController::class, 'become_member'])->name('Become-Member');
 Route::post('/store-member', [FrontendController::class, 'store_member'])->name('Store-Member');
 
@@ -57,24 +34,12 @@ Route::get('/terms-&-conditions', [FrontendController::class, 'terms'])->name('T
 
 Route::prefix('Panel')->middleware(['auth', 'checkstatus'])->group(function () {
     Route::get('/dashboard', [BackendController::class, 'index'])->name('Admin-Dashboard');
+    Route::get('/donors', [BackendController::class, 'donors'])->name('All-Donors');
+    Route::get('/blood_requests', [BackendController::class, 'blood_requests'])->name('All-Blood-Requests');
+    Route::get('/members', [BackendController::class, 'members'])->name('All-Members');
 
     Route::resources([
-        'teachers' => TeacherController::class,
         'category' => CategoryController::class,
-        'subcategory' => SubcategoryController::class,
-        'courses' => CourseController::class,
-        'students' => StudentController::class,
-        'quizzes' => QuizController::class,
-        'tests' => TestController::class,
-        'offers' => OfferController::class,
-        'queries' => QueryController::class,
-        'studymaterialtypes' => StudyMaterialTypeController::class,
-        'studymaterials' => StudymaterialController::class,
-        'coursevideos' => CoursevideoController::class,
-        'courserrs' => CourseRRController::class,
-        'teacherrrs' => TeacherRRController::class,
-        'soldcourses' => SoldcoursesController::class,
-        'books' => BookController::class,
     ]);
 
     Route::get('/contacts', [BackendController::class, 'contacts'])->name('Contacts');

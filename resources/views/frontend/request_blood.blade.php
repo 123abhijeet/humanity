@@ -11,83 +11,144 @@
         <div class="row">
             <div class="col-12">
                 <div class="booking-form">
-                    <form>
+                <form method="post" action="{{route('Store-Blood-Request')}}" id="RequestForm">
+                @csrf
                         <br>
                         <div class="form-row">
                             <div class="control-group col-sm-6">
                                 <label>पेशेंट का नाम <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" required="required" />
+                                <input type="text" name="patent_name" class="form-control @error('patent_name') is-invalid @enderror" value="{{ old('patent_name') }}" required="required" />
+                                @error('patent_name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                             <div class="control-group col-sm-6">
                                 <label>पेशेंट की उम्र <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" required="required" />
+                                <input type="text" name="patent_age" class="form-control @error('patent_age') is-invalid @enderror" value="{{ old('patent_age') }}" required="required" />
+                                @error('patent_age')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="control-group col-sm-6">
                                 <label>पेशेंट का पता <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" required="required" />
+                                <input type="text" name="patent_address" class="form-control @error('patent_address') is-invalid @enderror" value="{{ old('patent_address') }}" required="required" />
+                                @error('patent_address')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                             <div class="control-group col-sm-6">
                                 <label>क्या प्रॉब्लम है <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="date" required="required" />
+                                <input type="text" name="patent_problem" class="form-control @error('patent_problem') is-invalid @enderror" value="{{ old('patent_problem') }}" id="date" required="required" />
+                                @error('patent_problem')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="control-group col-sm-6">
                                 <label>पेशेंट का ब्लड ग्रुप <span class="text-danger">*</span></label>
-                                <select class="custom-select">
+                                <select name="patent_blood_group" class="custom-select @error('patent_blood_group') is-invalid @enderror">
                                     <option selected disabled>Select Blood Group</option>
-                                    <option value="">O+</option>
-                                    <option>O-</option>
-                                    <option>A+</option>
-                                    <option>A-</option>
-                                    <option>B+</option>
-                                    <option>B-</option>
-                                    <option>AB+</option>
-                                    <option>AB-</option>
-                                    <option>Bombay</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                    <option value="Bombay">Bombay</option>
                                 </select>
+                                @error('patent_blood_group')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                             <div class="control-group col-sm-6">
                                 <label>कितना यूनिट ब्लड चाहिए <span class="text-danger">*</span></label>
-                                <input type="number" class="form-control" required="required"/>
+                                <input type="number" name="unit_required" class="form-control @error('unit_required') is-invalid @enderror" value="{{ old('unit_required') }}" required="required" />
+                                @error('unit_required')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="control-group col-sm-6">
                                 <label>हॉस्पिटल का नाम <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" required="required" />
+                                <input type="text" name="hospital_name" class="form-control @error('hospital_name') is-invalid @enderror" value="{{ old('hospital_name') }}" required="required" />
+                                @error('hospital_name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                             <div class="control-group col-sm-6">
                                 <label>हॉस्पिटल का पता <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" required="required" />
+                                <input type="text" name="hospital_address" class="form-control @error('hospital_address') is-invalid @enderror" value="{{ old('hospital_address') }}" required="required" />
+                                @error('hospital_address')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="control-group col-sm-6">
                                 <label>ब्लड कब चाहिए तारीख <span class="text-danger">*</span></label>
-                                <input type="date" class="form-control" required="required" />
+                                <input type="date" name="date_required" class="form-control @error('date_required') is-invalid @enderror" value="{{ old('date_required') }}" required="required" />
+                                @error('date_required')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                             <div class="control-group col-sm-6">
                                 <label>अटेंडेंट का नाम <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" required="required" />
+                                <input type="text" name="attendent_name" class="form-control @error('attendent_name') is-invalid @enderror" value="{{ old('attendent_name') }}" required="required" />
+                                @error('attendent_name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="control-group col-sm-6">
                                 <label>अटेंडेंट का मोबाइल नंबर <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" required="required" />
+                                <input type="text" name="attendent_mobile" class="form-control @error('attendent_mobile') is-invalid @enderror" value="{{ old('attendent_mobile') }}" required="required" />
+                                @error('attendent_mobile')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                             <div class="control-group col-sm-6">
                                 <label>परिवार वालों ने कितना यूनिट ब्लड दिया <span class="text-danger">*</span></label>
-                                <input type="number" class="form-control" required="required" />
+                                <input type="number" name="donated_unit" class="form-control @error('donated_unit') is-invalid @enderror" value="{{ old('donated_unit') }}" required="required" />
+                                @error('donated_unit')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </div>
                         <span>नोट:- इस पूरी जानकारी की जवाबदेही मरीज़ के परिजन की है,किसी भी गलत जानकारी के लिए मरीज के परिजन की जवाबदेही होगी।</span>
                         <div class="button">
                             <br>
-                            <button type="submit">Submit</button>
+                            <button type="submit" id="RequestBtn">Submit</button>
                         </div>
                     </form>
                 </div>
@@ -95,4 +156,15 @@
         </div>
     </div>
 </section>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var RequestBtn = document.getElementById('RequestBtn');
+        var RequestForm = document.getElementById('RequestForm');
+
+        RequestBtn.addEventListener('click', function() {
+            RequestBtn.disabled = true; // Disable the button to prevent double-click
+            RequestForm.submit(); // Submit the form
+        });
+    });
+</script>
 @endsection

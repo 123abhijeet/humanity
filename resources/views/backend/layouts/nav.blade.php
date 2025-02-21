@@ -8,19 +8,6 @@
 
 				<ul class="nav float-left">
 					<li>
-						<div class="top-nav-search">
-							<a href="javascript:void(0);" class="responsive-search">
-								<i class="fa fa-search"></i>
-							</a>
-							<form action="search.html">
-								<input class="form-control" type="text" placeholder="Search here" />
-								<button class="btn" type="submit">
-									<i class="fa fa-search"></i>
-								</button>
-							</form>
-						</div>
-					</li>
-					<li>
 						<a href="index.html" class="mobile-logo d-md-block d-lg-none d-block"><img src="{{ asset('frontend/img/sat_logo.png')}}" alt="" width="30" height="30" /></a>
 					</li>
 				</ul>
@@ -128,16 +115,8 @@
 
 					<li class="nav-item dropdown has-arrow">
 						<a href="#" class="nav-link user-link" data-toggle="dropdown">
-							@php
-							$teacher = App\Models\Backend\Teacher::where('user_id',Auth::user()->id)->first();
-							@endphp
-							@if (Auth::user()->hasRole('Teacher') && $teacher && $teacher->picture)
-							<span class="user-img"><img class="rounded-circle" src="{{ asset('Teacher Picture/' . $teacher->picture) }}" width="40" height="35" alt="Admin" />
-								<span class="status online"></span></span>
-							@else
 							<span class="user-img"><img class="rounded-circle" src="{{ asset('backend/img/user.jpg') }}" width="30" alt="Admin" />
 								<span class="status online"></span></span>
-							@endif
 							<span>{{Auth::user()->name}}</span>
 						</a>
 						<div class="dropdown-menu">
