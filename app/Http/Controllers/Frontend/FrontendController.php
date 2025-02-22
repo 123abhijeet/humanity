@@ -3,27 +3,16 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Mail\UserRegistered;
+use App\Mail\BloodRequestEmail;
 use App\Models\Backend\Bloodrequest;
-use App\Models\Backend\Book;
-use App\Models\Backend\Category;
-use App\Models\Backend\Contact;
-use App\Models\Backend\Course;
-use App\Models\Backend\CoursePayment;
 use App\Models\Backend\Donation;
 use App\Models\Backend\Member;
-use App\Models\Backend\Student;
-use App\Models\Backend\Subcategory;
-use App\Models\Backend\Teacher;
 use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
 
 class FrontendController extends Controller
 {
@@ -71,6 +60,14 @@ class FrontendController extends Controller
 
         $data = $request->all();
         Bloodrequest::create($data);
+        $user_detail = User::get();
+        foreach ($user_detail as $item) {
+            try {
+                Mail::to($item->email)->send(new BloodRequestEmail($item->name,$item->email,$data['attendent_name'],$data['attendent_mobile'],$data['patent_blood_group'],$data['unit_required'],$data['hospital_name'],$data['hospital_address']));
+            } catch (Exception $exception) {
+                \Log::error('Mail sending error: ' . $exception->getMessage());
+            }
+        }
         return redirect()->back()->with('success', 'Your details submitted successfully');
     }
     public function store_blood_donation(Request $request)
@@ -95,7 +92,7 @@ class FrontendController extends Controller
         Donation::create($data);
         return redirect()->back()->with('success', 'Your details submitted successfully');
     }
-    public function store_member(Request $request) 
+    public function store_member(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'members_name' => ['required'],
@@ -114,7 +111,14 @@ class FrontendController extends Controller
         Member::create($data);
         return redirect()->back()->with('success', 'Your details submitted successfully');
     }
-    
+
+    public function update_last_donation_date(Request $request)
+    {
+        Member::where('id',$request->member_id)->update([
+            'members_last_donation_date' => $request->members_last_donation_date
+        ]);
+        return redirect()->back()->with('success', 'Last donation date updated successfully');
+    }
     public function privacy_policy()
     {
         return view('frontend.policies.privacy_policy');

@@ -279,7 +279,7 @@
                                         <td>{{ $item->members_age }}</td>
                                         <td>{{ $item->members_blood_group }}</td>
                                         <td>{{ $item->members_address }}</td>
-                                        <td>{{ $formatted_last_donation_date }}</td>
+                                        <td  data-toggle="modal" data-target="#UpdateLastDateModal{{ $item->id }}">{{ $formatted_last_donation_date }}</td>
                                         <td class="{{ $is_today ? 'flash' : '' }}">
                                             {{ $formatted_next_donation_date }}
                                         </td>
@@ -295,5 +295,30 @@
         @endrole
     </div>
 </div>
+<!-- Update Members Last Donation Date Modal Start -->
+@foreach($members as $item)
+<div class="modal fade" id="UpdateLastDateModal{{ $item->id }}" tabindex="-1" aria-labelledby="UpdateLastDateModalLabel{{ $item->id }}" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="UpdateLastDateModalLabel{{ $item->id }}">आखरी रक्तदान - {{ $item->members_name }}</h5>
+			</div>
+			<form method="post" action="{{ route('Update-Last-Donation-Date') }}">
+				@csrf
+				<input type="hidden" name="member_id" value="{{ $item->id }}" /> <!-- Store member ID -->
+				<div class="modal-body">
+					<label>आखरी रक्तदान की तिथि <span class="text-danger">*</span></label>
+					<input type="date" name="members_last_donation_date" class="form-control" value="{{ $item->members_last_donation_date }}" required />
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary">Update</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+@endforeach
+<!-- Update Members Last Donation Date Modal End -->
 <!-- index end -->
 @endsection
