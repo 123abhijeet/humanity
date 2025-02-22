@@ -104,7 +104,7 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="about-col">
-                        <h4>जुड़ने के लिए स्कैन करें</h4>
+                        <h4>संस्था से जुड़ने के लिए स्कैन करें</h4>
                         <img class="join_img" src="{{asset('frontend/img/join.jpeg')}}" alt="">
                     </div>
                 </div>

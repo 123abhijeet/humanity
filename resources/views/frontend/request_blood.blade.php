@@ -148,7 +148,7 @@
                                 <br>
                                 <div class="form-row">
                                     <div class="control-group col-sm-6">
-                                        <label>पेशेंट का नाम <span class="text-danger">*</span></label>
+                                        <label>पेशेंट का नाम (Patents Name)<span class="text-danger">*</span></label>
                                         <input type="text" name="patent_name" class="form-control @error('patent_name') is-invalid @enderror" value="{{ old('patent_name') }}" required="required" />
                                         @error('patent_name')
                                         <span class="invalid-feedback" role="alert">
@@ -157,7 +157,7 @@
                                         @enderror
                                     </div>
                                     <div class="control-group col-sm-6">
-                                        <label>पेशेंट की उम्र <span class="text-danger">*</span></label>
+                                        <label>पेशेंट की उम्र (Patents Age)<span class="text-danger">*</span></label>
                                         <input type="text" name="patent_age" class="form-control @error('patent_age') is-invalid @enderror" value="{{ old('patent_age') }}" required="required" />
                                         @error('patent_age')
                                         <span class="invalid-feedback" role="alert">
@@ -168,7 +168,7 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="control-group col-sm-6">
-                                        <label>पेशेंट का पता <span class="text-danger">*</span></label>
+                                        <label>पेशेंट का पता (Patents Address)<span class="text-danger">*</span></label>
                                         <input type="text" name="patent_address" class="form-control @error('patent_address') is-invalid @enderror" value="{{ old('patent_address') }}" required="required" />
                                         @error('patent_address')
                                         <span class="invalid-feedback" role="alert">
@@ -177,7 +177,7 @@
                                         @enderror
                                     </div>
                                     <div class="control-group col-sm-6">
-                                        <label>क्या प्रॉब्लम है <span class="text-danger">*</span></label>
+                                        <label>क्या प्रॉब्लम है (Patents Problem)<span class="text-danger">*</span></label>
                                         <input type="text" name="patent_problem" class="form-control @error('patent_problem') is-invalid @enderror" value="{{ old('patent_problem') }}" id="date" required="required" />
                                         @error('patent_problem')
                                         <span class="invalid-feedback" role="alert">
@@ -188,7 +188,7 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="control-group col-sm-6">
-                                        <label>पेशेंट का ब्लड ग्रुप <span class="text-danger">*</span></label>
+                                        <label>पेशेंट का ब्लड ग्रुप (Patents Blood Group)<span class="text-danger">*</span></label>
                                         <select name="patent_blood_group" class="custom-select @error('patent_blood_group') is-invalid @enderror">
                                             <option selected disabled>Select Blood Group</option>
                                             <option value="O+">O+</option>
@@ -208,7 +208,7 @@
                                         @enderror
                                     </div>
                                     <div class="control-group col-sm-6">
-                                        <label>कितना यूनिट ब्लड चाहिए <span class="text-danger">*</span></label>
+                                        <label>कितना यूनिट ब्लड चाहिए (Home Many Units Required)<span class="text-danger">*</span></label>
                                         <input type="number" name="unit_required" class="form-control @error('unit_required') is-invalid @enderror" value="{{ old('unit_required') }}" required="required" />
                                         @error('unit_required')
                                         <span class="invalid-feedback" role="alert">
@@ -219,7 +219,7 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="control-group col-sm-6">
-                                        <label>हॉस्पिटल का नाम <span class="text-danger">*</span></label>
+                                        <label>हॉस्पिटल का नाम (Hospital Name)<span class="text-danger">*</span></label>
                                         <input type="text" name="hospital_name" class="form-control @error('hospital_name') is-invalid @enderror" value="{{ old('hospital_name') }}" required="required" />
                                         @error('hospital_name')
                                         <span class="invalid-feedback" role="alert">
@@ -228,7 +228,7 @@
                                         @enderror
                                     </div>
                                     <div class="control-group col-sm-6">
-                                        <label>हॉस्पिटल का पता <span class="text-danger">*</span></label>
+                                        <label>हॉस्पिटल का पता (Hospital Address)<span class="text-danger">*</span></label>
                                         <input type="text" name="hospital_address" class="form-control @error('hospital_address') is-invalid @enderror" value="{{ old('hospital_address') }}" required="required" />
                                         @error('hospital_address')
                                         <span class="invalid-feedback" role="alert">
@@ -239,7 +239,7 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="control-group col-sm-6">
-                                        <label>ब्लड कब चाहिए तारीख <span class="text-danger">*</span></label>
+                                        <label>ब्लड कब चाहिए तारीख (Required Date)<span class="text-danger">*</span></label>
                                         <input type="date" name="date_required" class="form-control @error('date_required') is-invalid @enderror" value="{{ old('date_required') }}" required="required" />
                                         @error('date_required')
                                         <span class="invalid-feedback" role="alert">
@@ -248,7 +248,7 @@
                                         @enderror
                                     </div>
                                     <div class="control-group col-sm-6">
-                                        <label>अटेंडेंट का नाम <span class="text-danger">*</span></label>
+                                        <label>अटेंडेंट का नाम (Attendent Name)<span class="text-danger">*</span></label>
                                         <input type="text" name="attendent_name" class="form-control @error('attendent_name') is-invalid @enderror" value="{{ old('attendent_name') }}" required="required" />
                                         @error('attendent_name')
                                         <span class="invalid-feedback" role="alert">
@@ -259,7 +259,7 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="control-group col-sm-6">
-                                        <label>अटेंडेंट का मोबाइल नंबर <span class="text-danger">*</span></label>
+                                        <label>अटेंडेंट का मोबाइल नंबर (Attendent Mobile No)<span class="text-danger">*</span></label>
                                         <input type="text" name="attendent_mobile" class="form-control @error('attendent_mobile') is-invalid @enderror" value="{{ old('attendent_mobile') }}" required="required" />
                                         @error('attendent_mobile')
                                         <span class="invalid-feedback" role="alert">
@@ -268,7 +268,7 @@
                                         @enderror
                                     </div>
                                     <div class="control-group col-sm-6">
-                                        <label>परिवार वालों ने कितना यूनिट ब्लड दिया <span class="text-danger">*</span></label>
+                                        <label>परिवार वालों ने कितना यूनिट ब्लड दिया (Total Donated Unit)<span class="text-danger">*</span></label>
                                         <input type="number" name="donated_unit" class="form-control @error('donated_unit') is-invalid @enderror" value="{{ old('donated_unit') }}" required="required" />
                                         @error('donated_unit')
                                         <span class="invalid-feedback" role="alert">

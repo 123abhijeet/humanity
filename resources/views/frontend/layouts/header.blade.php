@@ -99,21 +99,7 @@
 
 <body>
 	<!-- Top Header Start -->
-	<section class="top-header">
-		<div class="container text-center">
-			<div class="row">
-				<div class="col-md-12">
-					<h1 style="font-size: 70px;"><a href="">HUMANITY BL🩸🩸D DONORS TRUST, KHAGARIA, BIHAR </a></h1>
-					<a class="brand" href="" title="Home"><img alt="Logo" src="{{asset('frontend/img/logo.png')}}" style="width: 15%;border-radius: 50%;"></a>
-				</div>
-			</div>
-
-			<div class="col-md-12">
-				<h2>LETS CREATE🩸 BLOOD RELATION</h2>
-				<a class="btn btn-full" href="{{route('Request-Blood')}}">Request Blood</a>
-			</div>
-		</div>
-	</section>
+	@include('frontend.layouts.banner')
 	<!-- Top Header End -->
 
 
