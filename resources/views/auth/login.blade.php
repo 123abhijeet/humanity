@@ -159,7 +159,7 @@
                         <div><button type="submit" id="loginBtn">Sign In</button></div>
                         @if (Route::has('password.request'))
                         <div class="text-center">
-                            <a href="{{ route('password.request') }}">Forgot your password?</a>
+                            <a href="{{ route('password.request') }}" style="color: #A52A2A;">Forgot your password?</a>
                         </div>
                         @endif
                     </form>

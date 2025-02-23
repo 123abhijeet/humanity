@@ -63,7 +63,7 @@ class FrontendController extends Controller
         $user_detail = User::get();
         foreach ($user_detail as $item) {
             try {
-                Mail::to($item->email)->send(new BloodRequestEmail($item->name,$item->email,$data['attendent_name'],$data['attendent_mobile'],$data['patent_blood_group'],$data['unit_required'],$data['hospital_name'],$data['hospital_address']));
+                Mail::to($item->email)->send(new BloodRequestEmail($item->name, $item->email, $data['attendent_name'], $data['attendent_mobile'], $data['patent_blood_group'], $data['unit_required'], $data['hospital_name'], $data['hospital_address']));
             } catch (Exception $exception) {
                 \Log::error('Mail sending error: ' . $exception->getMessage());
             }
@@ -73,6 +73,7 @@ class FrontendController extends Controller
     public function store_blood_donation(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'registration_no' => ['required'],
             'donors_name' => ['required'],
             'donors_age' => ['required'],
             'donors_mobile' => ['required'],
@@ -112,10 +113,18 @@ class FrontendController extends Controller
         return redirect()->back()->with('success', 'Your details submitted successfully');
     }
 
-    public function update_last_donation_date(Request $request)
+    public function update_last_donation_date_member(Request $request)
     {
-        Member::where('id',$request->member_id)->update([
+        Member::where('id', $request->member_id)->update([
             'members_last_donation_date' => $request->members_last_donation_date
+        ]);
+        return redirect()->back()->with('success', 'Last donation date updated successfully');
+    }
+    public function update_last_donation_date_donor(Request $request)
+    {
+        Donation::where('id', $request->donor_id)->update([
+            'donation_date' => $request->donors_last_donation_date,
+            'donors_last_donation_date' => $request->donors_last_donation_date,
         ]);
         return redirect()->back()->with('success', 'Last donation date updated successfully');
     }

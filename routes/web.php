@@ -37,7 +37,8 @@ Route::prefix('Panel')->middleware(['auth', 'checkstatus'])->group(function () {
     Route::get('/donors', [BackendController::class, 'donors'])->name('All-Donors');
     Route::get('/blood_requests', [BackendController::class, 'blood_requests'])->name('All-Blood-Requests');
     Route::get('/members', [BackendController::class, 'members'])->name('All-Members');
-    Route::post('/update-last-donation-date', [FrontendController::class, 'update_last_donation_date'])->name('Update-Last-Donation-Date');
+    Route::post('/update-last-donation-date-member', [FrontendController::class, 'update_last_donation_date_member'])->name('Update-Last-Donation-Date-Member');
+    Route::post('/update-last-donation-date-donor', [FrontendController::class, 'update_last_donation_date_donor'])->name('Update-Last-Donation-Date-Donor');
 
     Route::resources([
      

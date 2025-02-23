@@ -16,7 +16,7 @@
                         <br>
                         <div class="form-row">
                             <div class="control-group col-sm-6">
-                                <label>सदस्य का नाम <span class="text-danger">*</span></label>
+                                <label>सदस्य का नाम (Members Name)<span class="text-danger">*</span></label>
                                 <input type="text" name="members_name" class="form-control @error('members_name') is-invalid @enderror" value="{{ old('members_name') }}" required="required" />
                                 @error('members_name')
                                 <span class="invalid-feedback" role="alert">
@@ -25,7 +25,7 @@
                                 @enderror
                             </div>
                             <div class="control-group col-sm-6">
-                                <label>सदस्य की उम्र <span class="text-danger">*</span></label>
+                                <label>सदस्य की उम्र (Members Age)<span class="text-danger">*</span></label>
                                 <input type="text" name="members_age" class="form-control @error('members_age') is-invalid @enderror" value="{{ old('members_age') }}" required="required" />
                                 @error('members_age')
                                 <span class="invalid-feedback" role="alert">
@@ -36,7 +36,7 @@
                         </div>
                         <div class="form-row">
                             <div class="control-group col-sm-6">
-                                <label>सदस्य का मोबाइल नंबर <span class="text-danger">*</span></label>
+                                <label>सदस्य का मोबाइल नंबर (Members Mobile No.)<span class="text-danger">*</span></label>
                                 <input type="text" name="members_mobile" class="form-control @error('members_mobile') is-invalid @enderror" value="{{ old('members_mobile') }}" required="required" />
                                 @error('members_mobile')
                                 <span class="invalid-feedback" role="alert">
@@ -45,7 +45,7 @@
                                 @enderror
                             </div>
                             <div class="control-group col-sm-6">
-                                <label>सदस्य का पता <span class="text-danger">*</span></label>
+                                <label>सदस्य का पता (Members Address)<span class="text-danger">*</span></label>
                                 <input type="text" name="members_address" class="form-control @error('members_address') is-invalid @enderror" value="{{ old('members_address') }}" required="required" />
                                 @error('members_address')
                                 <span class="invalid-feedback" role="alert">
@@ -56,7 +56,7 @@
                         </div>
                         <div class="form-row">
                             <div class="control-group col-sm-6">
-                                <label>सदस्य का ब्लड ग्रुप <span class="text-danger">*</span></label>
+                                <label>सदस्य का ब्लड ग्रुप (Members Blood Group)<span class="text-danger">*</span></label>
                                 <select name="members_blood_group" class="custom-select @error('members_blood_group') is-invalid @enderror">
                                     <option selected disabled>Select Blood Group</option>
                                     <option value="O+">O+</option>
@@ -76,7 +76,7 @@
                                 @enderror
                             </div>
                             <div class="control-group col-sm-6">
-                                <label>आखरी रक्तदान की तिथि <span class="text-danger">*</span></label>
+                                <label>आखरी रक्तदान की तिथि (Last Blood Donation Date)<span class="text-danger">*</span></label>
                                 <input type="date" name="members_last_donation_date" class="form-control @error('members_last_donation_date') is-invalid @enderror" value="{{ old('members_last_donation_date') }}" required="required" />
                                 @error('members_last_donation_date')
                                 <span class="invalid-feedback" role="alert">

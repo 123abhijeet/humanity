@@ -1,6 +1,9 @@
 @extends('frontend.layouts.master')
 @section('title','Home | Humanity')
 @section('body')
+<!-- Top Header Start -->
+@include('frontend.layouts.banner')
+<!-- Top Header End -->
 <main id="main">
 
     <!-- About Section Start-->
@@ -25,7 +28,7 @@
                             <li><a href="#" class="fa fa-instagram"></a></li>
                         </ul>
                         <p>
-                        ह्यूमैनिटी ब्लड डोनर्स ट्रस्ट खगड़िया बिहार
+                            ह्यूमैनिटी ब्लड डोनर्स ट्रस्ट खगड़िया बिहार
                         </p>
                         <p>
                             Aliquam ut nibh ut lacus posuere facilisis. Vestibulum ullamcorper arcu et bibendum ultrices. Suspendisse rutrum turpis vitae.
@@ -111,4 +114,5 @@
             </div>
         </div>
     </section>
+
     @endsection

@@ -172,12 +172,13 @@
                                 <thead class="thead-light">
                                     <tr>
                                         <th>#</th>
+                                        <th>Registration No.</th>
                                         <th>Name</th>
                                         <th>Mobile</th>
                                         <th>Age</th>
                                         <th>Blood Group</th>
                                         <th>Last Donation Date</th>
-                                        <th>Donation Date</th>
+                                        <th class="text-danger">Donation Date</th>
                                         <th>Next Donation Date</th>
                                         <th>Address</th>
                                         <th>Venue</th>
@@ -199,12 +200,13 @@
                                     @endphp
                                     <tr>
                                         <td>{{ ++$key }}</td>
+                                        <td>{{ $item->registration_no }}</td>
                                         <td>{{ $item->donors_name }}</td>
                                         <td>{{ $item->donors_mobile }}</td>
                                         <td>{{ $item->donors_age }}</td>
                                         <td>{{ $item->donors_blood_group }}</td>
                                         <td>{{ $donors_last_donation_date }}</td>
-                                        <td>{{ $donation_date ? $donation_date->format('d M Y') : 'N/A' }}</td>
+                                        <td data-toggle="modal" data-target="#UpdateDonorsLastDateModal{{ $item->id }}">{{ $donation_date ? $donation_date->format('d M Y') : 'N/A' }}</td>
                                         <td class="{{ $is_today ? 'flash' : '' }}">
                                             {{ $formatted_next_donation_date }}
                                         </td>
@@ -242,7 +244,7 @@
                                         <th>Age</th>
                                         <th>Blood Group</th>
                                         <th>Address</th>
-                                        <th>Last Donation Date</th>
+                                        <th class="text-danger">Last Donation Date</th>
                                         <th>Next Donation Date</th>
                                     </tr>
                                 </thead>
@@ -279,7 +281,7 @@
                                         <td>{{ $item->members_age }}</td>
                                         <td>{{ $item->members_blood_group }}</td>
                                         <td>{{ $item->members_address }}</td>
-                                        <td  data-toggle="modal" data-target="#UpdateLastDateModal{{ $item->id }}">{{ $formatted_last_donation_date }}</td>
+                                        <td data-toggle="modal" data-target="#UpdateMembersLastDateModal{{ $item->id }}">{{ $formatted_last_donation_date }}</td>
                                         <td class="{{ $is_today ? 'flash' : '' }}">
                                             {{ $formatted_next_donation_date }}
                                         </td>
@@ -297,13 +299,13 @@
 </div>
 <!-- Update Members Last Donation Date Modal Start -->
 @foreach($members as $item)
-<div class="modal fade" id="UpdateLastDateModal{{ $item->id }}" tabindex="-1" aria-labelledby="UpdateLastDateModalLabel{{ $item->id }}" aria-hidden="true">
+<div class="modal fade" id="UpdateMembersLastDateModal{{ $item->id }}" tabindex="-1" aria-labelledby="UpdateMembersLastDateModalLabel{{ $item->id }}" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="UpdateLastDateModalLabel{{ $item->id }}">आखरी रक्तदान - {{ $item->members_name }}</h5>
+				<h5 class="modal-title" id="UpdateMembersLastDateModalLabel{{ $item->id }}">आखरी रक्तदान - {{ $item->members_name }}</h5>
 			</div>
-			<form method="post" action="{{ route('Update-Last-Donation-Date') }}">
+			<form method="post" action="{{ route('Update-Last-Donation-Date-Member') }}">
 				@csrf
 				<input type="hidden" name="member_id" value="{{ $item->id }}" /> <!-- Store member ID -->
 				<div class="modal-body">
@@ -320,5 +322,32 @@
 </div>
 @endforeach
 <!-- Update Members Last Donation Date Modal End -->
+
+<!-- Update Donors Last Donation Date Modal Start -->
+@foreach($donors as $item)
+<div class="modal fade" id="UpdateDonorsLastDateModal{{ $item->id }}" tabindex="-1" aria-labelledby="UpdateDonorsLastDateModalLabel{{ $item->id }}" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="UpdateDonorsLastDateModalLabel{{ $item->id }}">आखरी रक्तदान - {{ $item->donors_name }}</h5>
+			</div>
+			<form method="post" action="{{ route('Update-Last-Donation-Date-Donor') }}">
+				@csrf
+				<input type="hidden" name="donor_id" value="{{ $item->id }}" /> <!-- Store member ID -->
+				<div class="modal-body">
+					<label>आखरी रक्तदान की तिथि <span class="text-danger">*</span></label>
+					<input type="date" name="donors_last_donation_date" class="form-control" value="{{ $item->donation_date }}" required />
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary">Update</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+@endforeach
+<!-- Update Donors Last Donation Date Modal End -->
+
 <!-- index end -->
 @endsection

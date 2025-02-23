@@ -98,11 +98,6 @@
 </head>
 
 <body>
-	<!-- Top Header Start -->
-	@include('frontend.layouts.banner')
-	<!-- Top Header End -->
-
-
 	<!-- Header Start -->
 	<header id="header">
 		<div class="container">
@@ -130,11 +125,4 @@
 		</div>
 	</header>
 	<!-- Header End -->
-	<div class="mobile_show">
-		<br>
-		<a style="background: #A52A2A; color: #fff; font-weight: 700; padding: 15px 30px; border-radius: 50px; letter-spacing: 1px; margin-left: 20px;" href="{{route('Donate-Blood')}}">Donate Blood</a>
-		<a style="background: #A52A2A; color: #fff; font-weight: 700; padding: 15px 30px; border-radius: 50px; letter-spacing: 1px;" href="{{route('Request-Blood')}}">Request Blood</a>
-		<br>
-		<br>
-	</div>
 	<main id="main">

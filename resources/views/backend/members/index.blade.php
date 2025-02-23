@@ -121,7 +121,7 @@
 			<div class="modal-header">
 				<h5 class="modal-title" id="UpdateLastDateModalLabel{{ $item->id }}">आखरी रक्तदान - {{ $item->members_name }}</h5>
 			</div>
-			<form method="post" action="{{ route('Update-Last-Donation-Date') }}">
+			<form method="post" action="{{ route('Update-Last-Donation-Date-Member') }}">
 				@csrf
 				<input type="hidden" name="member_id" value="{{ $item->id }}" /> <!-- Store member ID -->
 				<div class="modal-body">

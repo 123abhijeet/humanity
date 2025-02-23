@@ -10,7 +10,8 @@ body {
 }
 
 a {
-    color: #A52A2A;
+    /* color: #A52A2A; */
+    color: #fff;
     transition: 0.5s;
 }
 
