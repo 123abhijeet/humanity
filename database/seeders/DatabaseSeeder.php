@@ -20,13 +20,13 @@ class DatabaseSeeder extends Seeder
         // ]);
         // \App\Models\User::factory(10)->create();
 
-        // $user = User::factory()->create([
-        //     'name' => 'Amar Kumar',
-        //     'email' => 'indianamar09@gmail.com',
-        //     'password' => Hash::make('11111111'),
-        //     'status' => '1',
-        // ]);
-        // $user->assignRole('Admin');
+        $user = User::factory()->create([
+            'name' => 'Naveen Goenka',
+            'email' => 'goenkanaveen09@gmail.com',
+            'password' => Hash::make('11111111'),
+            'status' => '1',
+        ]);
+        $user->assignRole('Admin');
 
         // $user = User::find(1);
         // $user = User::find(2);
